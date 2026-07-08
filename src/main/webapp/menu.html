@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Restaurant Menu</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#f5f5f5;
+}
+
+/* Navbar */
+
+nav{
+    background:#ff4d4d;
+    color:white;
+    padding:18px 60px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-size:28px;
+    font-weight:bold;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:25px;
+}
+
+nav ul li{
+    cursor:pointer;
+}
+
+/* Restaurant Banner */
+
+.banner{
+    width:90%;
+    margin:30px auto;
+    background:white;
+    border-radius:15px;
+    display:flex;
+    align-items:center;
+    padding:20px;
+    box-shadow:0 4px 10px rgba(0,0,0,.1);
+}
+
+.banner img{
+    width:220px;
+    height:180px;
+    border-radius:15px;
+    object-fit:cover;
+}
+
+.banner-content{
+    margin-left:25px;
+}
+
+.banner-content h1{
+    font-size:36px;
+    color:#333;
+}
+
+.banner-content p{
+    color:#666;
+    margin-top:10px;
+}
+
+.rating{
+    display:inline-block;
+    margin-top:12px;
+    background:green;
+    color:white;
+    padding:6px 12px;
+    border-radius:8px;
+}
+
+/* Heading */
+
+.heading{
+    text-align:center;
+    font-size:35px;
+    margin-bottom:30px;
+    color:#444;
+}
+
+/* Cards */
+
+.container{
+
+    width:90%;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+    padding-bottom:40px;
+}
+
+.card{
+
+    background:white;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 4px 12px rgba(0,0,0,.15);
+    transition:.3s;
+}
+
+.card:hover{
+
+    transform:translateY(-8px);
+}
+
+.card img{
+
+    width:100%;
+    height:200px;
+    object-fit:cover;
+}
+
+.content{
+
+    padding:15px;
+}
+
+.content h2{
+
+    color:#333;
+    margin-bottom:10px;
+}
+
+.content p{
+
+    color:#666;
+    line-height:22px;
+    font-size:15px;
+}
+
+.details{
+
+    display:flex;
+    justify-content:space-between;
+    margin:15px 0;
+    font-weight:bold;
+}
+
+.price{
+
+    color:#ff5722;
+}
+
+button{
+
+    width:100%;
+    padding:12px;
+    border:none;
+    background:#ff4d4d;
+    color:white;
+    font-size:17px;
+    cursor:pointer;
+    border-radius:8px;
+}
+
+button:hover{
+
+    background:#e63939;
+}
+
+footer{
+
+    background:#222;
+    color:white;
+    text-align:center;
+    padding:20px;
+    margin-top:40px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<nav>
+
+<div class="logo">FoodieExpress</div>
+
+<ul>
+
+<li>Home</li>
+<li>Restaurants</li>
+<li>Orders</li>
+<li>Profile</li>
+
+</ul>
+
+</nav>
+
+<div class="banner">
+
+<img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=900" alt="Restaurant">
+
+<div class="banner-content">
+
+<h1>Meghana Foods</h1>
+
+<p>South Indian • Biryani • Chinese • North Indian</p>
+
+<span class="rating">⭐ 4.5</span>
+
+</div>
+
+</div>
+
+<h1 class="heading">Menu</h1>
+
+<div class="container">
+
+<!-- Card 1 -->
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1563379091339-03246963d96c?w=800">
+
+<div class="content">
+
+<h2>Chicken Dum Biryani</h2>
+
+<p>Traditional Hyderabadi dum biryani with juicy chicken and aromatic basmati rice.</p>
+
+<div class="details">
+
+<span class="price">₹299</span>
+
+<span>⭐4.7</span>
+
+</div>
+
+<button>Add To Cart</button>
+
+</div>
+
+</div>
+
+<!-- Card 2 -->
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1604908176997-4319b5cb4c73?w=800">
+
+<div class="content">
+
+<h2>Paneer Butter Masala</h2>
+
+<p>Soft paneer cubes cooked in creamy tomato gravy with butter.</p>
+
+<div class="details">
+
+<span class="price">₹249</span>
+
+<span>⭐4.6</span>
+
+</div>
+
+<button>Add To Cart</button>
+
+</div>
+
+</div>
+
+<!-- Card 3 -->
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=800">
+
+<div class="content">
+
+<h2>Butter Naan</h2>
+
+<p>Freshly baked naan topped with butter.</p>
+
+<div class="details">
+
+<span class="price">₹60</span>
+
+<span>⭐4.4</span>
+
+</div>
+
+<button>Add To Cart</button>
+
+</div>
+
+</div>
+
+<!-- Card 4 -->
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=800">
+
+<div class="content">
+
+<h2>Cheese Pizza</h2>
+
+<p>Loaded with mozzarella cheese and fresh vegetables.</p>
+
+<div class="details">
+
+<span class="price">₹349</span>
+
+<span>⭐4.8</span>
+
+</div>
+
+<button>Add To Cart</button>
+
+</div>
+
+</div>
+
+<!-- Card 5 -->
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1550547660-d9450f859349?w=800">
+
+<div class="content">
+
+<h2>Chicken Burger</h2>
+
+<p>Crispy chicken burger served with fresh lettuce and cheese.</p>
+
+<div class="details">
+
+<span class="price">₹199</span>
+
+<span>⭐4.5</span>
+
+</div>
+
+<button>Add To Cart</button>
+
+</div>
+
+</div>
+
+<!-- Card 6 -->
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1625944525533-473f1b3d54e7?w=800">
+
+<div class="content">
+
+<h2>French Fries</h2>
+
+<p>Golden crispy fries with peri-peri seasoning.</p>
+
+<div class="details">
+
+<span class="price">₹149</span>
+
+<span>⭐4.3</span>
+
+</div>
+
+<button>Add To Cart</button>
+
+</div>
+
+</div>
+
+<!-- Card 7 -->
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?w=800">
+
+<div class="content">
+
+<h2>Cold Coffee</h2>
+
+<p>Refreshing cold coffee with vanilla ice cream.</p>
+
+<div class="details">
+
+<span class="price">₹120</span>
+
+<span>⭐4.6</span>
+
+</div>
+
+<button>Add To Cart</button>
+
+</div>
+
+</div>
+
+<!-- Card 8 -->
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=800">
+
+<div class="content">
+
+<h2>Chocolate Ice Cream</h2>
+
+<p>Rich chocolate ice cream topped with chocolate syrup.</p>
+
+<div class="details">
+
+<span class="price">₹99</span>
+
+<span>⭐4.7</span>
+
+</div>
+
+<button>Add To Cart</button>
+
+</div>
+
+</div>
+
+</div>
+
+<footer>
+
+<h2>FoodieExpress</h2>
+
+<p>Delicious Food Delivered Fast</p>
+
+</footer>
+
+</body>
+</html>

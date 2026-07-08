@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Food Delivery App</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#f8f8f8;
+}
+
+/* Navbar */
+nav{
+    background:#fff;
+    padding:15px 50px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    box-shadow:0 2px 10px rgba(0,0,0,0.1);
+    position:sticky;
+    top:0;
+    z-index:100;
+}
+
+.logo{
+    font-size:28px;
+    font-weight:bold;
+    color:#e23744;
+}
+
+.nav-links{
+    display:flex;
+    gap:25px;
+}
+
+.nav-links a{
+    text-decoration:none;
+    color:#333;
+    font-weight:600;
+}
+
+.search-box input{
+    width:300px;
+    padding:10px;
+    border-radius:8px;
+    border:1px solid #ccc;
+}
+
+/* Hero Section */
+.hero{
+    background:url('https://images.unsplash.com/photo-1504674900247-0877df9cc836');
+    background-size:cover;
+    background-position:center;
+    height:350px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    color:white;
+    text-align:center;
+}
+
+.hero h1{
+    font-size:45px;
+    margin-bottom:15px;
+}
+
+.hero p{
+    font-size:20px;
+}
+
+/* Filters */
+.filters{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    padding:25px;
+    flex-wrap:wrap;
+}
+
+.filter-btn{
+    background:white;
+    border:1px solid #ddd;
+    padding:10px 20px;
+    border-radius:25px;
+    cursor:pointer;
+}
+
+/* Restaurant Section */
+.section-title{
+    text-align:center;
+    margin:20px 0;
+    font-size:32px;
+    color:#333;
+}
+
+.restaurant-container{
+    width:90%;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+    padding-bottom:50px;
+}
+
+.card{
+    background:white;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+}
+
+.card img{
+    width:100%;
+    height:200px;
+    object-fit:cover;
+}
+
+.card-content{
+    padding:15px;
+}
+
+.top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.rating{
+    background:green;
+    color:white;
+    padding:5px 10px;
+    border-radius:8px;
+    font-size:14px;
+}
+
+.cuisine{
+    color:gray;
+    margin:8px 0;
+}
+
+.bottom{
+    display:flex;
+    justify-content:space-between;
+    margin-top:10px;
+    color:#555;
+    font-size:14px;
+}
+
+footer{
+    background:#222;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+
+@media(max-width:768px){
+    nav{
+        flex-direction:column;
+        gap:15px;
+    }
+
+    .search-box input{
+        width:100%;
+    }
+
+    .hero h1{
+        font-size:32px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+    <div class="logo">FoodieExpress</div>
+
+    <div class="search-box">
+        <input type="text" placeholder="Search for restaurants...">
+    </div>
+
+    <div class="nav-links">
+        <a href="#">Home</a>
+        <a href="#">Restaurants</a>
+        <a href="#">Offers</a>
+        <a href="#">Login</a>
+        <a href="#">Sign Up</a>
+        <a href="#">Profile</a>
+    </div>
+</nav>
+
+<section class="hero">
+    <h1>Discover the Best Food Near You</h1>
+    <p>Order from top-rated restaurants</p>
+</section>
+
+<div class="filters">
+    <button class="filter-btn">Fast Delivery</button>
+    <button class="filter-btn">Rating 4.0+</button>
+    <button class="filter-btn">Pure Veg</button>
+    <button class="filter-btn">Offers</button>
+    <button class="filter-btn">Under ₹300</button>
+</div>
+
+<h2 class="section-title">Popular Restaurants</h2>
+
+<div class="restaurant-container">
+
+<!-- Card 1 -->
+<div class="card">
+<img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=800&q=80" alt="Biryani">
+<div class="card-content">
+<div class="top"><h3>Paradise Biryani</h3><span class="rating">4.5★</span></div>
+<p class="cuisine">Biryani, Indian</p>
+<div class="bottom"><span>📍 Hyderabad</span><span>25 min</span></div>
+</div>
+</div>
+
+<!-- Card 2 -->
+<div class="card">
+<img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd">
+<div class="card-content">
+<div class="top"><h3>Burger King</h3><span class="rating">4.3★</span></div>
+<p class="cuisine">Burger, Fast Food</p>
+<div class="bottom"><span>📍 Bengaluru</span><span>20 min</span></div>
+</div>
+</div>
+
+<!-- Card 3 -->
+<div class="card">
+<img src="https://images.unsplash.com/photo-1513104890138-7c749659a591">
+<div class="card-content">
+<div class="top"><h3>Pizza Hut</h3><span class="rating">4.4★</span></div>
+<p class="cuisine">Pizza</p>
+<div class="bottom"><span>📍 Chennai</span><span>30 min</span></div>
+</div>
+</div>
+
+<!-- Card 4 -->
+<div class="card">
+<img src="https://images.unsplash.com/photo-1512058564366-18510be2db19">
+<div class="card-content">
+<div class="top"><h3>Domino's</h3><span class="rating">4.2★</span></div>
+<p class="cuisine">Pizza</p>
+<div class="bottom"><span>📍 Hyderabad</span><span>25 min</span></div>
+</div>
+</div>
+
+<!-- Card 5 -->
+<div class="card">
+<img src="https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec">
+<div class="card-content">
+<div class="top"><h3>KFC</h3><span class="rating">4.3★</span></div>
+<p class="cuisine">Chicken</p>
+<div class="bottom"><span>📍 Bengaluru</span><span>20 min</span></div>
+</div>
+</div>
+
+<!-- Card 6 -->
+<div class="card">
+<img src="https://images.unsplash.com/photo-1550547660-d9450f859349">
+<div class="card-content">
+<div class="top"><h3>McDonald's</h3><span class="rating">4.4★</span></div>
+<p class="cuisine">Burgers</p>
+<div class="bottom"><span>📍 Chennai</span><span>22 min</span></div>
+</div>
+</div>
+
+<!-- Card 7 -->
+<div class="card">
+<img src="https://images.unsplash.com/photo-1589302168068-964664d93dc0">
+<div class="card-content">
+<div class="top"><h3>Behrouz Biryani</h3><span class="rating">4.6★</span></div>
+<p class="cuisine">Biryani</p>
+<div class="bottom"><span>📍 Hyderabad</span><span>28 min</span></div>
+</div>
+</div>
+
+<!-- Card 8 -->
+<div class="card">
+<img src="https://images.unsplash.com/photo-1528735602780-2552fd46c7af">
+<div class="card-content">
+<div class="top"><h3>Subway</h3><span class="rating">4.2★</span></div>
+<p class="cuisine">Sandwiches</p>
+<div class="bottom"><span>📍 Bengaluru</span><span>18 min</span></div>
+</div>
+</div>
+
+<!-- Card 9 -->
+<div class="card">
+<img src="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd">
+<div class="card-content">
+<div class="top"><h3>Barbeque Nation</h3><span class="rating">4.5★</span></div>
+<p class="cuisine">BBQ</p>
+<div class="bottom"><span>📍 Chennai</span><span>35 min</span></div>
+</div>
+</div>
+
+<!-- Card 10 -->
+<div class="card">
+<img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c">
+<div class="card-content">
+<div class="top"><h3>Haldiram's</h3><span class="rating">4.4★</span></div>
+<p class="cuisine">North Indian</p>
+<div class="bottom"><span>📍 Delhi</span><span>28 min</span></div>
+</div>
+</div>
+
+<!-- Card 11 -->
+<div class="card">
+<img src="https://images.unsplash.com/photo-1482049016688-2d3e1b311543">
+<div class="card-content">
+<div class="top"><h3>Bikanervala</h3><span class="rating">4.3★</span></div>
+<p class="cuisine">Sweets</p>
+<div class="bottom"><span>📍 Delhi</span><span>25 min</span></div>
+</div>
+</div>
+
+<!-- Card 12 -->
+<div class="card">
+<img src="https://images.unsplash.com/photo-1562967916-eb82221dfb92">
+<div class="card-content">
+<div class="top"><h3>Wow Momo</h3><span class="rating">4.4★</span></div>
+<p class="cuisine">Momos</p>
+<div class="bottom"><span>📍 Bengaluru</span><span>20 min</span></div>
+</div>
+</div>
+
+<!-- Card 13 -->
+<div class="card">
+<img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836">
+<div class="card-content">
+<div class="top"><h3>Andhra Spice</h3><span class="rating">4.5★</span></div>
+<p class="cuisine">Andhra Meals</p>
+<div class="bottom"><span>📍 Hyderabad</span><span>24 min</span></div>
+</div>
+</div>
+
+<!-- Card 14 -->
+<div class="card">
+<img src="https://images.unsplash.com/photo-1585032226651-759b368d7246">
+<div class="card-content">
+<div class="top"><h3>Chinese Wok</h3><span class="rating">4.3★</span></div>
+<p class="cuisine">Chinese</p>
+<div class="bottom"><span>📍 Chennai</span><span>22 min</span></div>
+</div>
+</div>
+
+<!-- Card 15 -->
+<div class="card">
+<img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb">
+<div class="card-content">
+<div class="top"><h3>Cream Stone</h3><span class="rating">4.6★</span></div>
+<p class="cuisine">Ice Cream</p>
+<div class="bottom"><span>📍 Hyderabad</span><span>15 min</span></div>
+</div>
+</div>
+
+<!-- Card 16 -->
+<div class="card">
+<img src="https://images.unsplash.com/photo-1570197788417-0e82375c9371">
+<div class="card-content">
+<div class="top"><h3>Natural Ice Cream</h3><span class="rating">4.7★</span></div>
+<p class="cuisine">Desserts</p>
+<div class="bottom"><span>📍 Bengaluru</span><span>18 min</span></div>
+</div>
+</div>
+
+<!-- Card 17 -->
+<div class="card">
+<img src="https://images.unsplash.com/photo-1519676867240-f03562e64548">
+<div class="card-content">
+<div class="top"><h3>Belgian Waffle</h3><span class="rating">4.5★</span></div>
+<p class="cuisine">Waffles</p>
+<div class="bottom"><span>📍 Chennai</span><span>20 min</span></div>
+</div>
+</div>
+
+<!-- Card 18 -->
+<div class="card">
+<img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085">
+<div class="card-content">
+<div class="top"><h3>Cafe Coffee Day</h3><span class="rating">4.2★</span></div>
+<p class="cuisine">Coffee</p>
+<div class="bottom"><span>📍 Hyderabad</span><span>15 min</span></div>
+</div>
+</div>
+
+<!-- Card 19 -->
+<div class="card">
+<img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93">
+<div class="card-content">
+<div class="top"><h3>Starbucks</h3><span class="rating">4.4★</span></div>
+<p class="cuisine">Coffee</p>
+<div class="bottom"><span>📍 Bengaluru</span><span>18 min</span></div>
+</div>
+</div>
+
+<!-- Card 20 -->
+<div class="card">
+<img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38">
+<div class="card-content">
+<div class="top"><h3>Taco Bell</h3><span class="rating">4.3★</span></div>
+<p class="cuisine">Mexican</p>
+<div class="bottom"><span>📍 Chennai</span><span>25 min</span></div>
+</div>
+</div>
+
+</div>
+
+<footer>
+    <h3>FoodieExpress © 2026</h3>
+    <p>Delivering Happiness at Your Doorstep</p>
+</footer>
+
+</body>
+</html>
