@@ -29,7 +29,7 @@ public class RegisterServlet extends  HttpServlet{
 		int res=userDAOImpl.addUser(user);
 		if(res==1)
 		{
-			resp.sendRedirect("login.html");
+			resp.sendRedirect("login.jsp");
 		}
 		else
 		{

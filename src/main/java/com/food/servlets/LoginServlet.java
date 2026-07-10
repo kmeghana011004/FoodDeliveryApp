@@ -17,33 +17,60 @@ import jakarta.servlet.http.HttpSession;
 @WebServlet("/callLoginServlet")
 public class LoginServlet extends HttpServlet {
 	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String email = req.getParameter("email");
-		String password = req.getParameter("password");
-		
-		HttpSession session = req.getSession();
-		
-		userDAOImpl udao = new userDAOImpl();
-		User u = udao.getUserByEmail(email);
-		
-		if(u != null && BCrypt.checkpw(password, u.getPassword())) {
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
+	        throws ServletException, IOException {
 
-		    session.setAttribute("user", u); 
-		    session.setAttribute("userId", u.getUserId());  // Store complete user object
-		    session.setAttribute("name", u.getUserName()); // Optional
+	    String email = req.getParameter("email");
+	    String password = req.getParameter("password");
 
-		    String redirectPage = (String) session.getAttribute("redirectPage");
+	    HttpSession session = req.getSession();
 
-		    if(redirectPage != null){
-		        session.removeAttribute("redirectPage");
-		        resp.sendRedirect(redirectPage);
-		    }else{
-		        resp.sendRedirect("callRestaurantServlet");
-		    }
+	    userDAOImpl udao = new userDAOImpl();
 
-		}
-		else{
-		    resp.sendRedirect("login.html");
-		}
+	    User user = udao.getUserByEmail(email);
+
+	    // Email doesn't exist
+	    if(user == null) {
+
+	        req.setAttribute("error", "Account not found. Please register first.");
+
+	        req.getRequestDispatcher("login.jsp").forward(req, resp);
+
+	    }
+
+	    // Password incorrect
+	    else if(!BCrypt.checkpw(password, user.getPassword())) {
+
+	        req.setAttribute("error", "Incorrect Password. Please try again.");
+
+	        req.getRequestDispatcher("login.jsp").forward(req, resp);
+
+	    }
+
+	    // Login Success
+	    else {
+
+	        session.setAttribute("user", user);
+	        session.setAttribute("userId", user.getUserId());
+	        session.setAttribute("name", user.getUserName());
+
+	        String redirectPage=(String)session.getAttribute("redirectPage");
+
+	        if(redirectPage!=null){
+
+	            session.removeAttribute("redirectPage");
+
+	            resp.sendRedirect(redirectPage);
+
+	        }
+
+	        else{
+
+	            resp.sendRedirect("callRestaurantServlet");
+
+	        }
+
+	    }
+
 	}
 }

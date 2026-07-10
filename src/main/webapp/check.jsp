@@ -34,414 +34,391 @@ session.setAttribute("grandTotal", grandTotal);
 <style>
 
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Segoe UI',sans-serif;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
 }
 
 body{
-background:#f4f6f9;
+    background:#f7f8fa;
+    color:#333;
 }
 
-/*==========================
- NAVBAR
-===========================*/
+/*================ NAVBAR ================*/
 
 nav{
-height:75px;
-background:white;
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:0 70px;
-box-shadow:0 5px 18px rgba(0,0,0,.08);
-position:sticky;
-top:0;
-z-index:999;
+    position:sticky;
+    top:0;
+    z-index:1000;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 60px;
+    background:rgba(255,255,255,.95);
+    backdrop-filter:blur(12px);
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
 }
 
 .logo{
-font-size:34px;
-font-weight:bold;
-color:#ff5a00;
+    font-size:30px;
+    font-weight:700;
+    color:#ff5a3c;
 }
 
 nav ul{
-display:flex;
-list-style:none;
-gap:35px;
+    display:flex;
+    list-style:none;
+    gap:28px;
 }
 
 nav a{
-text-decoration:none;
-font-size:18px;
-font-weight:600;
-color:#444;
-transition:.3s;
+    text-decoration:none;
+    color:#444;
+    font-weight:600;
+    transition:.3s;
 }
 
 nav a:hover{
-color:#ff5a00;
+    color:#ff5a3c;
 }
 
-/*==========================
- PAGE HEADER
-===========================*/
+/*================ HEADER ================*/
 
 .header{
-width:90%;
-margin:40px auto 20px;
+    width:90%;
+    margin:40px auto 25px;
 }
 
 .header h1{
-font-size:40px;
-color:#222;
-margin-bottom:10px;
+    font-size:42px;
+    color:#222;
+    margin-bottom:10px;
 }
 
 .header p{
-font-size:18px;
-color:#666;
+    color:#666;
+    font-size:18px;
 }
 
-/*==========================
- STEPS
-===========================*/
+/*================ STEPS ================*/
 
 .steps{
-width:90%;
-margin:25px auto 40px;
-display:flex;
-justify-content:center;
-align-items:center;
+    width:90%;
+    margin:30px auto 40px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
 }
 
 .step{
-padding:12px 30px;
-background:white;
-border-radius:30px;
-font-weight:bold;
-box-shadow:0 5px 15px rgba(0,0,0,.08);
+    background:#fff;
+    padding:12px 28px;
+    border-radius:30px;
+    font-weight:600;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
 }
 
 .step.active{
-background:#ff5a00;
-color:white;
+    background:#ff5a3c;
+    color:#fff;
 }
 
 .line{
-width:90px;
-height:4px;
-background:#d7d7d7;
+    width:90px;
+    height:3px;
+    background:#ddd;
 }
 
-/*==========================
- MAIN
-===========================*/
+/*================ LAYOUT ================*/
 
 .checkout{
-width:90%;
-margin:auto;
-display:grid;
-grid-template-columns:2fr 1fr;
-gap:35px;
-padding-bottom:50px;
+    width:90%;
+    margin:auto;
+    display:grid;
+    grid-template-columns:2fr 1fr;
+    gap:35px;
+    padding-bottom:60px;
 }
 
 .left{
-display:flex;
-flex-direction:column;
-gap:30px;
+    display:flex;
+    flex-direction:column;
+    gap:30px;
 }
 
 .right{
-position:sticky;
-top:100px;
-height:fit-content;
+    position:sticky;
+    top:100px;
+    height:fit-content;
 }
 
-/*==========================
- CARD
-===========================*/
+/*================ CARD ================*/
 
 .card{
-background:white;
-padding:30px;
-border-radius:18px;
-box-shadow:0 10px 25px rgba(0,0,0,.08);
+    background:#fff;
+    border-radius:20px;
+    padding:30px;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-3px);
 }
 
 .card h2{
-margin-bottom:25px;
-font-size:28px;
-color:#333;
+    margin-bottom:25px;
+    color:#222;
 }
 
-/*==========================
- FORM
-===========================*/
+/*================ FORM ================*/
 
 .form-group{
-margin-bottom:20px;
+    margin-bottom:20px;
 }
 
 .form-group label{
-display:block;
-margin-bottom:8px;
-font-weight:600;
-color:#444;
+    display:block;
+    margin-bottom:8px;
+    font-weight:600;
+    color:#444;
 }
 
 .form-group input,
 .form-group textarea{
-width:100%;
-padding:15px;
-font-size:16px;
-border:2px solid #ececec;
-border-radius:10px;
-transition:.3s;
+    width:100%;
+    padding:15px;
+    border:1px solid #ddd;
+    border-radius:10px;
+    background:#fafafa;
+    font-size:15px;
+    transition:.3s;
 }
 
 .form-group input:focus,
 .form-group textarea:focus{
-outline:none;
-border-color:#ff5a00;
-box-shadow:0 0 10px rgba(255,90,0,.2);
+    outline:none;
+    background:#fff;
+    border-color:#ff5a3c;
+    box-shadow:0 0 0 4px rgba(255,90,60,.15);
 }
 
 textarea{
-resize:none;
-height:120px;
+    resize:none;
+    height:120px;
 }
-
-/*==========================
- TWO COLUMN
-===========================*/
 
 .row{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:20px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
 }
 
-/*==========================
- PAYMENT
-===========================*/
+/*================ PAYMENT ================*/
 
 .payment-box{
-display:flex;
-align-items:center;
-gap:15px;
-padding:18px;
-border:2px solid #ececec;
-border-radius:14px;
-margin-bottom:15px;
-cursor:pointer;
-transition:.3s;
+    display:flex;
+    align-items:center;
+    gap:15px;
+    padding:18px;
+    border:1px solid #ddd;
+    border-radius:12px;
+    margin-bottom:15px;
+    cursor:pointer;
+    transition:.3s;
 }
 
 .payment-box:hover{
-border-color:#ff5a00;
-background:#fff6f1;
-transform:translateY(-2px);
+    background:#fff6f3;
+    border-color:#ff5a3c;
+    transform:translateY(-2px);
 }
 
-.payment-box input[type=radio]{
-accent-color:#ff5a00;
-width:20px;
-height:20px;
+.payment-box input{
+    accent-color:#ff5a3c;
 }
 
 .payment-box span{
-font-size:18px;
-font-weight:600;
-color:#444;
+    font-weight:600;
 }
 
-/*==========================
- COUPON
-===========================*/
+/*================ COUPON ================*/
 
 .coupon{
-display:flex;
-gap:15px;
+    display:flex;
+    gap:15px;
 }
 
 .coupon input{
-flex:1;
-padding:15px;
-border-radius:10px;
-border:2px solid #ddd;
-font-size:16px;
+    flex:1;
 }
 
 .apply-btn{
-background:#222;
-color:white;
-padding:15px 25px;
-border:none;
-border-radius:10px;
-font-size:16px;
-cursor:pointer;
-transition:.3s;
+    border:none;
+    background:#222;
+    color:#fff;
+    padding:15px 25px;
+    border-radius:10px;
+    cursor:pointer;
+    transition:.3s;
 }
 
 .apply-btn:hover{
-background:#000;
+    background:#000;
 }
-/*==========================
- ORDER SUMMARY
-===========================*/
+
+/*================ SUMMARY ================*/
 
 .summary{
-background:#ffffff;
-padding:30px;
-border-radius:20px;
-box-shadow:0 12px 25px rgba(0,0,0,.08);
-border-top:6px solid #ff5a00;
+    background:#fff;
+    padding:30px;
+    border-radius:20px;
+    border-top:5px solid #ff5a3c;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
 }
 
 .summary h2{
-font-size:30px;
-margin-bottom:25px;
-color:#333;
+    margin-bottom:25px;
 }
 
 .summary-row{
-display:flex;
-justify-content:space-between;
-margin:18px 0;
-font-size:18px;
-color:#555;
+    display:flex;
+    justify-content:space-between;
+    margin:18px 0;
+    color:#555;
 }
 
 .summary-total{
-margin-top:20px;
-padding-top:20px;
-border-top:2px dashed #ddd;
-display:flex;
-justify-content:space-between;
-font-size:28px;
-font-weight:bold;
-color:#ff5a00;
+    display:flex;
+    justify-content:space-between;
+    margin-top:25px;
+    padding-top:20px;
+    border-top:2px dashed #ddd;
+    font-size:26px;
+    font-weight:700;
+    color:#ff5a3c;
 }
 
+/*================ BUTTONS ================*/
+
 .place-order{
-display:block;
-width:100%;
-text-align:center;
-padding:18px;
-margin-top:30px;
-background:linear-gradient(90deg,#ff5a00,#ff7a00);
-color:white;
-text-decoration:none;
-font-size:20px;
-font-weight:bold;
-border-radius:12px;
-transition:.3s;
+    width:100%;
+    border:none;
+    background:linear-gradient(135deg,#ff5a3c,#ff7b42);
+    color:#fff;
+    padding:16px;
+    margin-top:25px;
+    border-radius:12px;
+    font-size:18px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
 }
 
 .place-order:hover{
-transform:translateY(-2px);
-box-shadow:0 10px 25px rgba(255,90,0,.35);
+    transform:translateY(-3px);
+    box-shadow:0 12px 28px rgba(255,90,60,.28);
 }
 
 .back-cart{
-display:block;
-width:100%;
-text-align:center;
-padding:16px;
-margin-top:15px;
-border:2px solid #ff5a00;
-color:#ff5a00;
-font-weight:bold;
-font-size:18px;
-text-decoration:none;
-border-radius:12px;
-transition:.3s;
+    display:block;
+    text-align:center;
+    margin-top:15px;
+    padding:15px;
+    border:2px solid #ff5a3c;
+    color:#ff5a3c;
+    border-radius:12px;
+    text-decoration:none;
+    font-weight:600;
+    transition:.3s;
 }
 
 .back-cart:hover{
-background:#ff5a00;
-color:white;
+    background:#ff5a3c;
+    color:#fff;
 }
 
-/*==========================
- DELIVERY INFO
-===========================*/
+/*================ INFO BOXES ================*/
 
 .delivery-card{
-margin-top:25px;
-padding-top:20px;
-border-top:1px solid #ddd;
+    margin-top:25px;
+    padding-top:20px;
+    border-top:1px solid #eee;
 }
 
 .delivery-card h3{
-margin-bottom:15px;
-color:#333;
+    margin-bottom:15px;
+    color:#222;
 }
 
 .delivery-card p{
-margin:10px 0;
-color:#666;
-font-size:16px;
+    color:#666;
+    margin:10px 0;
+    line-height:24px;
 }
 
-/*==========================
- FOOTER
-===========================*/
+/*================ FOOTER ================*/
 
 footer{
-background:#1e1e1e;
-color:white;
-text-align:center;
-padding:35px;
-margin-top:60px;
+    margin-top:50px;
+    background:#222;
+    color:#fff;
+    padding:45px 20px;
 }
 
-footer h2{
-margin-bottom:10px;
+footer a{
+    color:#bbb;
+    text-decoration:none;
 }
 
-footer p{
-color:#bfbfbf;
-margin-top:8px;
+footer a:hover{
+    color:#fff;
 }
 
-/*==========================
- RESPONSIVE
-===========================*/
+footer hr{
+    border:none;
+    border-top:1px solid #444;
+    margin:35px 0;
+}
+
+/*================ RESPONSIVE ================*/
 
 @media(max-width:900px){
 
 .checkout{
-grid-template-columns:1fr;
+    grid-template-columns:1fr;
 }
 
 .right{
-position:relative;
-top:0;
+    position:static;
 }
 
 .row{
-grid-template-columns:1fr;
+    grid-template-columns:1fr;
 }
 
 nav{
-padding:0 25px;
+    flex-direction:column;
+    gap:20px;
+    padding:20px;
 }
 
 nav ul{
-gap:15px;
+    gap:18px;
 }
 
-.logo{
-font-size:28px;
+.header,
+.steps,
+.checkout{
+    width:94%;
+}
+
+.header h1{
+    font-size:34px;
 }
 
 }
-
 </style>
 
 </head>
@@ -450,7 +427,7 @@ font-size:28px;
 
 <nav>
 
-<div class="logo">🍽 CraveNest</div>
+<div class="logo">🍽 QuickBite</div>
 
 <ul>
 

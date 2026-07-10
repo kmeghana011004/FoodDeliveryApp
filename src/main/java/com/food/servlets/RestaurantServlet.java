@@ -17,24 +17,34 @@ import jakarta.servlet.http.HttpServletResponse;
 public class RestaurantServlet extends HttpServlet {
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
-             {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) {
 
-    	 try {
-        RestaurantDAOImpl dao = new RestaurantDAOImpl();
+        try {
 
-        List<Restaurant> allRestaurants = dao.getAllRestaurants();
-        req.setAttribute("allRestaurants", allRestaurants);
-        RequestDispatcher rd = req.getRequestDispatcher("restaurant.jsp");
-       
-			rd.forward(req, resp);
-			
-		} catch (ServletException e) {
-			
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+            RestaurantDAOImpl dao = new RestaurantDAOImpl();
+
+            String keyword = req.getParameter("search");
+
+            List<Restaurant> allRestaurants;
+
+            if (keyword != null && !keyword.trim().isEmpty()) {
+
+                allRestaurants = dao.searchRestaurants(keyword);
+
+            } else {
+
+                allRestaurants = dao.getAllRestaurants();
+
+            }
+
+            req.setAttribute("allRestaurants", allRestaurants);
+
+            RequestDispatcher rd = req.getRequestDispatcher("restaurant.jsp");
+
+            rd.forward(req, resp);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

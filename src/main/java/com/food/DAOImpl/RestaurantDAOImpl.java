@@ -171,5 +171,50 @@ public class RestaurantDAOImpl implements RestaurantDAO {
        
         return restaurants;
     }
+    @Override
+    public List<Restaurant> searchRestaurants(String keyword) {
+
+        List<Restaurant> restaurants = new ArrayList<>();
+
+        String sql = "SELECT * FROM restaurant WHERE "
+                   + "name LIKE ? OR "
+                   + "cuisineType LIKE ? OR "
+                   + "address LIKE ?";
+
+        try {
+
+            PreparedStatement ps = con.prepareStatement(sql);
+
+            String search = "%" + keyword + "%";
+
+            ps.setString(1, search);
+            ps.setString(2, search);
+            ps.setString(3, search);
+
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+
+                Restaurant restaurant = new Restaurant();
+
+                restaurant.setRestaurantId(rs.getInt("restaurantId"));
+                restaurant.setName(rs.getString("name"));
+                restaurant.setCuisineType(rs.getString("cuisineType"));
+                restaurant.setDeliveryTime(rs.getInt("deliveryTime"));
+                restaurant.setAddress(rs.getString("address"));
+                restaurant.setAdminUserId(rs.getInt("adminUserId"));
+                restaurant.setRating(rs.getDouble("rating"));
+                restaurant.setActive(rs.getBoolean("isActive"));
+                restaurant.setImagePath(rs.getString("imagePath"));
+
+                restaurants.add(restaurant);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return restaurants;
+    }
 
 }

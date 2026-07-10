@@ -7,107 +7,114 @@
 
 <meta charset="UTF-8">
 
-<title>Order Confirmed | CraveNest</title>
+<title>Order Confirmed | QuickBite</title>
 
 <style>
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Segoe UI,sans-serif;
-}
-
 body{
-    background:#f5f5f5;
+    min-height:100vh;
     display:flex;
     justify-content:center;
     align-items:center;
-    height:100vh;
+    background:#f6f7fb;
+    padding:20px;
 }
-
-/* Card */
 
 .container{
-    width:500px;
+    width:100%;
+    max-width:460px;
     background:#fff;
-    border-radius:18px;
-    padding:40px;
+    padding:35px 30px;
+    border-radius:20px;
     text-align:center;
-    box-shadow:0 10px 25px rgba(0,0,0,.12);
+    box-shadow:0 15px 35px rgba(0,0,0,.12);
 }
 
-/* Tick */
-
 .tick{
-    width:100px;
-    height:100px;
+    width:80px;
+    height:80px;
     margin:auto;
-    background:#28a745;
-    color:white;
     border-radius:50%;
+    background:#28a745;
+    color:#fff;
     display:flex;
     justify-content:center;
     align-items:center;
-    font-size:50px;
-    margin-bottom:25px;
+    font-size:42px;
+    font-weight:bold;
+    box-shadow:0 8px 20px rgba(40,167,69,.3);
 }
 
 h1{
+    margin:20px 0 10px;
+    font-size:30px;
     color:#28a745;
-    margin-bottom:15px;
 }
 
 p{
     color:#666;
-    line-height:28px;
-    margin-bottom:30px;
+    font-size:15px;
+    line-height:24px;
 }
 
-/* Order Box */
-
 .order-box{
-    background:#fafafa;
-    border:1px solid #eee;
-    border-radius:10px;
+    margin:25px 0;
     padding:18px;
-    margin-bottom:30px;
+    background:#fafafa;
+    border:1px solid #ececec;
+    border-radius:12px;
 }
 
 .order-box p{
-    margin:8px 0;
-    color:#444;
+    margin:10px 0;
+    font-size:15px;
+    display:flex;
+    justify-content:space-between;
 }
-
-/* Buttons */
 
 .btn{
     display:inline-block;
-    padding:14px 28px;
-    margin:8px;
-    border-radius:8px;
+    padding:12px 24px;
+    margin:8px 5px 0;
+    border-radius:30px;
     text-decoration:none;
-    font-size:17px;
-    font-weight:bold;
+    font-size:15px;
+    font-weight:600;
     transition:.3s;
 }
 
-.home{
-    background:#ff5a00;
-    color:white;
-}
-
-.home:hover{
-    background:#e64a00;
-}
-
 .restaurant{
-    background:#28a745;
-    color:white;
+    background:#ff5a3c;
+    color:#fff;
 }
 
 .restaurant:hover{
-    background:#218838;
+    background:#e84a2d;
+}
+
+.home{
+    border:2px solid #28a745;
+    color:#28a745;
+    background:#fff;
+}
+
+.home:hover{
+    background:#28a745;
+    color:#fff;
+}
+
+@media(max-width:500px){
+
+.container{
+    max-width:100%;
+    padding:30px 20px;
+}
+
+.btn{
+    width:100%;
+    margin-top:10px;
+}
+
 }
 
 </style>
@@ -143,9 +150,8 @@ p{
         Order Again
     </a>
 
-    <a href="login.html" class="btn home">
-        Back to Home
-    </a>
+    
+    <a href="OrderHistoryServlet" class="btn home">My Orders</a>
 
 </div>
 

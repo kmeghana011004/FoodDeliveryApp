@@ -70,7 +70,7 @@ public class CartServlet extends HttpServlet{
        
       MenuDAOImpl menuDAO= new MenuDAOImpl();
       Menu menu=menuDAO.getMenu(menuId);
-      CartItem cartItem= new CartItem(menu.getMenuId(),menu.getRestaurantId(), menu.getItemName(),  menu.getPrice(), quatity);
+      CartItem cartItem= new CartItem(menu.getMenuId(),menu.getRestaurantId(), menu.getItemName(),  menu.getPrice(), quatity, menu.getImagePath());
       cart.addItem(cartItem);
 	}
 

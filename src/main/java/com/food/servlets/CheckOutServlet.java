@@ -27,7 +27,7 @@ public class CheckOutServlet extends HttpServlet {
         if (user == null) {
 
             session.setAttribute("redirectPage", "check.jsp");
-            resp.sendRedirect("login.html");
+            resp.sendRedirect("login.jsp");
 
         } else {
 

@@ -12,181 +12,273 @@
 <title>Restaurant Menu</title>
 
 <style>
-* {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-	font-family: Segoe UI, sans-serif;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
 }
 
-body {
-	background: #f5f5f5;
+body{
+    background:#f5f6fa;
+    color:#333;
 }
 
-nav {
-	background: #ff5200;
-	padding: 18px 50px;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	color: white;
-	position: sticky;
-	top: 0;
+/* ================= NAVBAR ================= */
+
+nav{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 60px;
+    background:rgba(255,255,255,.95);
+    backdrop-filter:blur(10px);
+    box-shadow:0 4px 20px rgba(0,0,0,.08);
 }
 
-.logo {
-	font-size: 30px;
-	font-weight: bold;
+.logo{
+    font-size:30px;
+    font-weight:700;
+    color:#ff5a3c;
 }
 
-nav input {
-	width: 350px;
-	padding: 10px 18px;
-	border: none;
-	border-radius: 30px;
-	outline: none;
+nav input{
+    width:360px;
+    height:45px;
+    padding:0 18px;
+    border:none;
+    outline:none;
+    border-radius:30px;
+    background:#f1f3f6;
+    transition:.3s;
+    font-size:15px;
 }
 
-.restaurant {
-	width: 90%;
-	margin: 30px auto;
-	background: white;
-	padding: 30px;
-	border-radius: 18px;
-	box-shadow: 0 5px 15px rgba(0, 0, 0, .1);
+nav input:focus{
+    background:#fff;
+    box-shadow:0 0 0 3px rgba(255,90,60,.18);
 }
 
-.restaurant h1 {
-	font-size: 36px;
+/* ================= RESTAURANT ================= */
+
+.restaurant{
+    width:90%;
+    margin:35px auto;
+    background:#fff;
+    padding:35px;
+    border-radius:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
 }
 
-.restaurant p {
-	margin-top: 10px;
-	font-size: 17px;
-	color: #555;
+.restaurant h1{
+    font-size:42px;
+    color:#222;
+    margin-bottom:10px;
 }
 
-.info {
-	margin-top: 20px;
-	display: flex;
-	gap: 20px;
-	flex-wrap: wrap;
+.restaurant p{
+    color:#666;
+    font-size:18px;
 }
 
-.info span {
-	background: #f1f1f1;
-	padding: 10px 18px;
-	border-radius: 25px;
-	font-weight: 600;
+.info{
+    margin-top:25px;
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
 }
 
-.section-title {
-	width: 90%;
-	margin: 30px auto 15px;
-	font-size: 30px;
+.info span{
+    padding:10px 18px;
+    border-radius:25px;
+    background:#fff4f1;
+    color:#ff5a3c;
+    font-weight:600;
 }
 
-.menu {
-	width: 90%;
-	margin: auto;
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-	gap: 25px;
-	padding-bottom: 40px;
+/* ================= TITLE ================= */
+
+.section-title{
+    width:90%;
+    margin:20px auto 25px;
+    font-size:34px;
+    color:#222;
 }
 
-.card {
-	background: white;
-	border-radius: 18px;
-	overflow: hidden;
-	box-shadow: 0 5px 15px rgba(0, 0, 0, .12);
-	transition: .3s;
+/* ================= MENU ================= */
+
+.menu{
+    width:90%;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:30px;
+    padding-bottom:60px;
 }
 
-.card:hover {
-	transform: translateY(-8px);
+/* ================= CARD ================= */
+
+.card{
+    background:#fff;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+    transition:.35s;
 }
 
-.card img {
-	width: 100%;
-	height: 220px;
-	object-fit: cover;
+.card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 18px 35px rgba(0,0,0,.15);
 }
 
-.details {
-	padding: 20px;
+.card img{
+    width:100%;
+    height:230px;
+    object-fit:cover;
+    transition:.4s;
 }
 
-.badges {
-	display: flex;
-	justify-content: space-between;
-	margin-bottom: 12px;
+.card:hover img{
+    transform:scale(1.06);
 }
 
-.veg {
-	background: #0a8f3d;
-	color: white;
-	padding: 6px 14px;
-	border-radius: 20px;
-	font-size: 13px;
+.details{
+    padding:20px;
 }
 
-.nonveg {
-	background: #d62828;
-	color: white;
-	padding: 6px 14px;
-	border-radius: 20px;
-	font-size: 13px;
+.badges{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:15px;
 }
 
-.rating {
-	background: #0a8f3d;
-	color: white;
-	padding: 6px 14px;
-	border-radius: 20px;
-	font-size: 13px;
+.veg,
+.nonveg,
+.rating{
+    padding:6px 14px;
+    border-radius:20px;
+    color:#fff;
+    font-size:13px;
+    font-weight:600;
 }
 
-.price {
-	font-size: 24px;
-	font-weight: bold;
-	color: #ff5200;
-	margin-top: 10px;
+.veg{
+    background:#27ae60;
 }
 
-.desc {
-	margin-top: 12px;
-	color: #666;
-	line-height: 24px;
+.nonveg{
+    background:#e74c3c;
 }
 
-.bottom {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	margin-top: 20px;
+.rating{
+    background:#16a34a;
 }
 
-button {
-	background: #ff5200;
-	color: white;
-	border: none;
-	padding: 12px 25px;
-	border-radius: 30px;
-	cursor: pointer;
-	font-size: 16px;
-	font-weight: bold;
+.details h2{
+    font-size:24px;
+    margin-bottom:10px;
+    color:#222;
 }
 
-button:hover {
-	background: #e64a00;
+.price{
+    color:#ff5a3c;
+    font-size:28px;
+    font-weight:700;
+    margin-bottom:12px;
 }
 
-footer {
-	background: #222;
-	color: white;
-	padding: 35px;
-	text-align: center;
+.desc{
+    color:#666;
+    line-height:24px;
+    min-height:70px;
+}
+
+.bottom{
+    display:flex;
+    justify-content:flex-end;
+    align-items:center;
+    margin-top:20px;
+}
+
+/* ================= BUTTON ================= */
+
+button{
+    border:none;
+    cursor:pointer;
+    background:#ff5a3c;
+    color:#fff;
+    padding:12px 28px;
+    border-radius:30px;
+    font-size:15px;
+    font-weight:600;
+    transition:.3s;
+}
+
+button:hover{
+    background:#e84a2d;
+    transform:translateY(-2px);
+    box-shadow:0 8px 20px rgba(255,90,60,.30);
+}
+
+button:disabled{
+    background:#bdbdbd;
+    cursor:not-allowed;
+    box-shadow:none;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    background:#222;
+    color:#fff;
+    text-align:center;
+    padding:40px 20px;
+}
+
+footer h2{
+    margin-bottom:10px;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:768px){
+
+nav{
+    flex-direction:column;
+    gap:18px;
+    padding:20px;
+}
+
+nav input{
+    width:100%;
+}
+
+.restaurant{
+    width:94%;
+    padding:25px;
+}
+
+.restaurant h1{
+    font-size:32px;
+}
+
+.section-title{
+    width:94%;
+    font-size:28px;
+}
+
+.menu{
+    width:94%;
+}
+
+.card img{
+    height:210px;
+}
+
 }
 </style>
 
@@ -196,7 +288,7 @@ footer {
 
 	<nav>
 
-		<div class="logo">🍽️ CraveNest</div>
+		<div class="logo">🍽️ QuickBite</div>
 
 		<input type="text" placeholder="Search Food">
 

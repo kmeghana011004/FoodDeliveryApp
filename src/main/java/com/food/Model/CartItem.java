@@ -7,7 +7,20 @@ public class CartItem {
 	private String name;
 	private double price;
 	private int quantity;
+	private String imagePath;
+
+	public String getImagePath() {
+	    return imagePath;
+	}
+
+	public void setImagePath(String imagePath) {
+	    this.imagePath = imagePath;
+	}
 	 
+	
+	public int getMenuId() {
+		return menuId;
+	}
 	public CartItem()
 	{
 		
@@ -20,9 +33,16 @@ public class CartItem {
 		this.price = price;
 		this.quantity = quantity;
 	}
-	public int getMenuId() {
-		return menuId;
+	public CartItem(int menuId, int retaurantId, String name, double price, int quantity, String imagePath) {
+		super();
+		this.menuId = menuId;
+		this.retaurantId = retaurantId;
+		this.name = name;
+		this.price = price;
+		this.quantity = quantity;
+		this.imagePath = imagePath;
 	}
+
 	public void setMenuId(int menuId) {
 		this.menuId = menuId;
 	}

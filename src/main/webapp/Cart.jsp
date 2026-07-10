@@ -12,189 +12,319 @@
 <title>My Cart | CraveNest</title>
 
 <style>
-* {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-	font-family: Segoe UI, sans-serif;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
 }
 
-body {
-	background: #f5f5f5;
+body{
+    background:#f5f6fa;
+    color:#333;
 }
 
-/* Navbar */
-nav {
-	background: #ff5200;
-	color: white;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	padding: 18px 50px;
-	position: sticky;
-	top: 0;
+/* ================= NAVBAR ================= */
+
+nav{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 60px;
+    background:rgba(255,255,255,.95);
+    backdrop-filter:blur(12px);
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
 }
 
-.logo {
-	font-size: 30px;
-	font-weight: bold;
+.logo{
+    font-size:30px;
+    font-weight:700;
+    color:#ff5a3c;
 }
 
-nav a {
-	color: white;
-	text-decoration: none;
-	font-size: 18px;
-	margin-left: 20px;
+nav div:last-child{
+    display:flex;
+    gap:25px;
 }
 
-/* Heading */
-.heading {
-	width: 90%;
-	margin: 30px auto;
-	font-size: 34px;
-	font-weight: bold;
+nav a{
+    text-decoration:none;
+    color:#444;
+    font-weight:600;
+    transition:.3s;
 }
 
-/* Cart Container */
-.container {
-	width: 90%;
-	margin: auto;
-	display: flex;
-	gap: 30px;
-	align-items: flex-start;
+nav a:hover{
+    color:#ff5a3c;
 }
 
-/* Left */
-.cart-items {
-	flex: 2;
+/* ================= HEADING ================= */
+
+.heading{
+    width:90%;
+    margin:35px auto;
+    font-size:38px;
+    color:#222;
 }
 
-/* Cart Card */
-.cart-card {
-	background: white;
-	display: flex;
-	align-items: center;
-	gap: 20px;
-	padding: 20px;
-	margin-bottom: 20px;
-	border-radius: 15px;
-	box-shadow: 0 4px 10px rgba(0, 0, 0, .1);
+/* ================= MAIN CONTAINER ================= */
+
+.container{
+    width:90%;
+    margin:auto;
+    display:flex;
+    gap:35px;
+    align-items:flex-start;
 }
 
-.cart-card img {
-	width: 140px;
-	height: 120px;
-	object-fit: cover;
-	border-radius: 12px;
+/* ================= CART ================= */
+
+.cart-items{
+    flex:2;
 }
 
-.item-details {
-	flex: 1;
+.cart-card{
+    background:#fff;
+    display:flex;
+    align-items:center;
+    gap:22px;
+    padding:22px;
+    margin-bottom:22px;
+    border-radius:18px;
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+    transition:.35s;
 }
 
-.item-details h2 {
-	margin-bottom: 8px;
+.cart-card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 18px 35px rgba(0,0,0,.15);
 }
 
-.item-details p {
-	color: #666;
-	margin-bottom: 10px;
+.cart-card img{
+    width:150px;
+    height:130px;
+    object-fit:cover;
+    border-radius:14px;
+    transition:.4s;
 }
 
-.price {
-	color: #ff5200;
-	font-size: 22px;
-	font-weight: bold;
+.cart-card:hover img{
+    transform:scale(1.05);
 }
 
-/* Quantity */
-.quantity {
-	display: flex;
-	align-items: center;
-	gap: 10px;
-	margin-top: 15px;
+.item-details{
+    flex:1;
 }
 
-.quantity button {
-	width: 35px;
-	height: 35px;
-	border: none;
-	background: #ff5200;
-	color: white;
-	border-radius: 50%;
-	cursor: pointer;
-	font-size: 18px;
+.item-details h2{
+    font-size:24px;
+    color:#222;
+    margin-bottom:10px;
 }
 
-.quantity span {
-	font-size: 18px;
-	font-weight: bold;
+.item-details p{
+    color:#777;
 }
 
-/* Remove */
-.remove-btn {
-	background: #dc3545;
-	color: white;
-	border: none;
-	padding: 10px 18px;
-	border-radius: 8px;
-	cursor: pointer;
+.price{
+    color:#ff5a3c;
+    font-size:28px;
+    font-weight:700;
+    margin:12px 0;
 }
 
-/* Right */
-.bill {
-	flex: 1;
-	background: white;
-	padding: 25px;
-	border-radius: 15px;
-	box-shadow: 0 4px 10px rgba(0, 0, 0, .1);
-	position: sticky;
-	top: 100px;
+/* ================= QUANTITY ================= */
+
+.quantity{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    margin-top:15px;
 }
 
-.bill h2 {
-	margin-bottom: 20px;
+.quantity button{
+    width:40px;
+    height:40px;
+    border:none;
+    border-radius:50%;
+    background:#ff5a3c;
+    color:#fff;
+    font-size:18px;
+    cursor:pointer;
+    transition:.3s;
 }
 
-.bill-row {
-	display: flex;
-	justify-content: space-between;
-	margin: 15px 0;
-	font-size: 18px;
+.quantity button:hover{
+    background:#e64a2d;
+    transform:scale(1.08);
 }
 
-.total {
-	border-top: 2px solid #ddd;
-	margin-top: 15px;
-	padding-top: 15px;
-	font-size: 24px;
-	font-weight: bold;
+.quantity span{
+    font-size:18px;
+    font-weight:600;
 }
 
-/* Button */
-.checkout {
-	width: 100%;
-	margin-top: 25px;
-	padding: 15px;
-	background: #ff5200;
-	color: white;
-	border: none;
-	border-radius: 10px;
-	font-size: 18px;
-	cursor: pointer;
+/* ================= REMOVE BUTTON ================= */
+
+.remove-btn{
+    border:none;
+    background:#ef4444;
+    color:#fff;
+    padding:12px 20px;
+    border-radius:10px;
+    cursor:pointer;
+    font-weight:600;
+    transition:.3s;
 }
 
-.checkout:hover {
-	background: #e64a00;
+.remove-btn:hover{
+    background:#dc2626;
 }
 
-/* Footer */
-footer {
-	background: #222;
-	color: white;
-	text-align: center;
-	padding: 30px;
-	margin-top: 40px;
+/* ================= BILL ================= */
+
+.bill{
+    flex:1;
+    background:#fff;
+    padding:30px;
+    border-radius:18px;
+    position:sticky;
+    top:100px;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+.bill h2{
+    margin-bottom:20px;
+    color:#222;
+}
+
+.bill-row{
+    display:flex;
+    justify-content:space-between;
+    margin:18px 0;
+    font-size:17px;
+    color:#555;
+}
+
+.total{
+    margin-top:20px;
+    padding-top:20px;
+    border-top:2px solid #eee;
+    font-size:23px;
+    font-weight:700;
+    color:#222;
+}
+
+/* ================= CHECKOUT ================= */
+
+.checkout{
+    display:block;
+    width:100%;
+    margin-top:25px;
+    background:#ff5a3c;
+    color:#fff;
+    padding:15px;
+    border-radius:12px;
+    text-align:center;
+    text-decoration:none;
+    font-size:17px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.checkout:hover{
+    background:#e64a2d;
+    transform:translateY(-2px);
+    box-shadow:0 10px 20px rgba(255,90,60,.28);
+}
+
+/* ================= EMPTY CART ================= */
+
+.empty-cart{
+    width:100%;
+    background:#fff;
+    padding:60px 30px;
+    border-radius:20px;
+    text-align:center;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+.empty-cart img{
+    width:180px;
+    margin-bottom:25px;
+}
+
+.empty-cart h2{
+    margin-bottom:12px;
+    color:#222;
+}
+
+.empty-cart p{
+    color:#777;
+    margin-bottom:30px;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    margin-top:60px;
+    background:#222;
+    color:#fff;
+    text-align:center;
+    padding:40px 20px;
+}
+
+footer h2{
+    margin-bottom:10px;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:900px){
+
+.container{
+    flex-direction:column;
+    width:94%;
+}
+
+.bill{
+    width:100%;
+    position:static;
+}
+
+nav{
+    flex-direction:column;
+    gap:18px;
+    padding:20px;
+}
+
+nav div:last-child{
+    gap:18px;
+}
+
+.cart-card{
+    flex-direction:column;
+    text-align:center;
+}
+
+.cart-card img{
+    width:100%;
+    height:220px;
+}
+
+.quantity{
+    justify-content:center;
+    flex-wrap:wrap;
+}
+
+.heading{
+    width:94%;
+    font-size:32px;
+}
+
 }
 </style>
 
@@ -203,7 +333,7 @@ footer {
 
 	<nav>
 
-		<div class="logo">🍽️ CraveNest</div>
+		<div class="logo">🍽️ QuickBite</div>
 
 		<div>
 			<a href="#">Home</a> <a href="callRestaurantServlet">Restaurants</a>
@@ -261,7 +391,8 @@ if (cart == null || cart.getItems().isEmpty()) {
 
         <div class="cart-card">
 
-            <img src="https://images.unsplash.com/photo-1604908176997-125f25cc6f3d">
+            <img src="<%=request.getContextPath()%>/<%=item.getImagePath()%>"
+     alt="<%=item.getName()%>">
 
             <div class="item-details">
 
